@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A2D291EB-7DFE-4C01-A480-3965F03059CF}</ProjectGuid>
+    <ProjectGuid>{0F568EFC-1A46-4DE9-ACB6-C5E4B85D230D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WinFormOrder</RootNamespace>
-    <AssemblyName>WinFormOrder</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>OrderForm</RootNamespace>
+    <AssemblyName>OrderForm</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,8 +36,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,30 +47,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DetailWin.cs">
+    <Compile Include="FormDetailEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DetailWin.Designer.cs">
-      <DependentUpon>DetailWin.cs</DependentUpon>
+    <Compile Include="FormDetailEdit.Designer.cs">
+      <DependentUpon>FormDetailEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainWin.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWin.Designer.cs">
-      <DependentUpon>MainWin.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Compile Include="FormEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEdit.Designer.cs">
+      <DependentUpon>FormEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormParent.Designer.cs">
+      <DependentUpon>FormParent.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DetailWin.resx">
-      <DependentUpon>DetailWin.cs</DependentUpon>
+    <EmbeddedResource Include="FormDetailEdit.resx">
+      <DependentUpon>FormDetailEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainWin.resx">
-      <DependentUpon>MainWin.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEdit.resx">
+      <DependentUpon>FormEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormParent.resx">
+      <DependentUpon>FormParent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,16 +93,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
+    <None Include="Properties\DataSources\OrderApp.Customer.datasource" />
+    <None Include="Properties\DataSources\OrderApp.Goods.datasource" />
     <None Include="Properties\DataSources\OrderApp.Order.datasource" />
-    <None Include="Properties\DataSources\OrderApp.OrderDetail.datasource" />
+    <None Include="Properties\DataSources\OrderApp.OrderItem.datasource" />
+    <None Include="Properties\DataSources\ordertest.Customer.datasource" />
+    <None Include="Properties\DataSources\ordertest.Goods.datasource" />
+    <None Include="Properties\DataSources\ordertest.Order.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -105,12 +116,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\1594092332\FileRecv\Assignment5\Assignment5\order\OrderApp.csproj">
+    <ProjectReference Include="..\OrderService\OrderService.csproj">
       <Project>{ca98a8e0-9173-4c2a-8629-c3a8512286c5}</Project>
-      <Name>OrderApp</Name>
+      <Name>OrderService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

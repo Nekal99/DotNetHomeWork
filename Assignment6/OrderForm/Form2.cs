@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormOrder
+namespace OrderForm
 {
-    public partial class AddDetail : Form
+    public partial class Form2 : Form
     {
-        public AddDetail()
+        public Form2()
         {
             InitializeComponent();
         }
